@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">supclubs</string>
+  <string name="facebook_app_id">1063289978058115</string>
+  <string name="fb_login_protocol_scheme">fb29c4e542093063b276dd134a3cd46c44</string>
+  <string name="facebook_client_token">288f9dbbf7cc162efc73b63e5a060e89</string>
+</resources>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1080219543683",
+    "project_id": "supclubs",
+    "storage_bucket": "supclubs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080219543683:android:27c50aeff2c0ed1ae713b6",
+        "android_client_info": {
+          "package_name": "com.example.supclubs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080219543683-4lsfs1qsfi8gd8kqq4mpuj7a0vlpgcnh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.supclubs",
+            "certificate_hash": "ed72ee59753547bcc7599deb568d3321f816227a"
+          }
+        },
+        {
+          "client_id": "1080219543683-bnujm4tdhajdv6apl55hafl0pfckn9hc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMfijnK_-H6V3RFxHgvTVPEzohMAoX5kg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080219543683-bnujm4tdhajdv6apl55hafl0pfckn9hc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
