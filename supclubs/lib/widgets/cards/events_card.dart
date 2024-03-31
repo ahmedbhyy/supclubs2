@@ -10,6 +10,7 @@ class EventsCard extends StatelessWidget {
   final String date;
   final String? time;
   final String place;
+  final String id;
   final String source;
   final Widget child;
   final Function() onLongPress;
@@ -22,7 +23,7 @@ class EventsCard extends StatelessWidget {
     required this.date,
     required this.place,
     this.time,
-    required this.onLongPress,
+    required this.onLongPress, required this.id,
   }) : super(key: key);
 
   @override
@@ -57,17 +58,20 @@ class EventsCard extends StatelessWidget {
               ),
               leading: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: CachedNetworkImage(
-                  imageUrl: source,
-                  width: 80,
-                  fit: BoxFit.fill,
-                  placeholder: (context, url) => Lottie.asset(
-                    "images/lottie_loading2.json",
-                    width: 100,
-                  ),
-                  errorWidget: (context, url, error) => Icon(
-                    Icons.error_outline,
-                    color: Colors.red,
+                child: Hero(
+                  tag:id ,
+                  child: CachedNetworkImage(
+                    imageUrl: source,
+                    width: 80,
+                    fit: BoxFit.fill,
+                    placeholder: (context, url) => Lottie.asset(
+                      "images/lottie_loading2.json",
+                      width: 100,
+                    ),
+                    errorWidget: (context, url, error) => Icon(
+                      Icons.error_outline,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
               ),

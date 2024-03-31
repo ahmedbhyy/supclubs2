@@ -97,16 +97,19 @@ class _EventDetailsState extends State<EventDetails> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: CachedNetworkImage(
-                imageUrl: widget.image,
-                height: 300,
-                fit: BoxFit.fill,
-                placeholder: (context, url) => Lottie.asset(
-                  "images/lottie_loading2.json",
-                ),
-                errorWidget: (context, url, error) => Icon(
-                  Icons.error,
-                  color: Colors.red,
+              child: Hero(
+                tag: widget.eventid,
+                child: CachedNetworkImage(
+                  imageUrl: widget.image,
+                  height: 300,
+                  fit: BoxFit.fill,
+                  placeholder: (context, url) => Lottie.asset(
+                    "images/lottie_loading2.json",
+                  ),
+                  errorWidget: (context, url, error) => Icon(
+                    Icons.error,
+                    color: Colors.red,
+                  ),
                 ),
               ),
             ),

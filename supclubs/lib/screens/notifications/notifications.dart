@@ -116,8 +116,10 @@ class _NotificationsState extends State<Notifications> {
                           date: userData[index]["date"],
                           place: userData[index]["place"],
                           time: userData[index]["time"],
+                          id: userData[index]['id'],
                           child: NotificationDetails(
                             image: userData[index]["image"],
+                            id: userData[index]["id"],
                             title: userData[index]["clubname"],
                             description: userData[index]["details"],
                             date: userData[index]["date"],

@@ -28,7 +28,8 @@ class WorkshopDetail extends StatefulWidget {
     required this.myurl,
     required this.workshopvote,
     required this.workshopid,
-    required this.clubname, required this.membersnumber,
+    required this.clubname,
+    required this.membersnumber,
   });
 
   @override

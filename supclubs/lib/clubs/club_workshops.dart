@@ -119,6 +119,7 @@ class _ClubWorkshopsState extends State<ClubWorkshops> {
                           date: data[index]["date"],
                           place: data[index]["place"],
                           time: data[index]["time"],
+                          id: data[index].id,
                           child: WorkshopDetail(
                             myurl: data[index]["pdf"],
                             date: data[index]["date"],

@@ -116,6 +116,7 @@ class _TabBarView2State extends State<TabBarView2> {
                               },
                               title: data[index]["title"],
                               source: data[index]["image"],
+                              id: data[index].id,
                               date: data[index]["date"],
                               place: data[index]["place"],
                               time: data[index]["time"],

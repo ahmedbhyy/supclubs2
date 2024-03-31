@@ -6,6 +6,7 @@ import 'package:supclubs/profilscreens/widget_profil/common_appbar.dart';
 
 class NotificationDetails extends StatelessWidget {
   final String title;
+  final String id;
   final String description;
   final String place;
   final String time;
@@ -21,7 +22,7 @@ class NotificationDetails extends StatelessWidget {
     required this.time,
     required this.date,
     required this.image,
-    required this.titleworkshop,
+    required this.titleworkshop, required this.id,
   });
 
   @override
@@ -39,17 +40,20 @@ class NotificationDetails extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: CachedNetworkImage(
-                imageUrl: image,
-                height: 250,
-                fit: BoxFit.fill,
-                placeholder: (context, url) => Lottie.asset(
-                  "images/lottie_loading2.json",
-                  width: 100,
-                ),
-                errorWidget: (context, url, error) => Icon(
-                  Icons.error,
-                  color: Colors.red,
+              child: Hero(
+                tag:id ,
+                child: CachedNetworkImage(
+                  imageUrl: image,
+                  height: 250,
+                  fit: BoxFit.fill,
+                  placeholder: (context, url) => Lottie.asset(
+                    "images/lottie_loading2.json",
+                    width: 100,
+                  ),
+                  errorWidget: (context, url, error) => Icon(
+                    Icons.error,
+                    color: Colors.red,
+                  ),
                 ),
               ),
             ),
