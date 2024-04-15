@@ -54,16 +54,16 @@ class _MembersEventsState extends State<MembersEvents> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         children: [
-          AppBarProfil(
+          const AppBarProfil(
             title: "Registraition List",
             lottie: "images/lottie_invitation.json",
           ),
           isloading
-              ? LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
+              ? const LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
               : data.isEmpty
-                  ? EmptyData(text: "No Registraition", padd: 3.0)
+                  ? const EmptyData(text: "No Registraition", padd: 3.0)
                   : Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width / 5,
@@ -85,7 +85,7 @@ class _MembersEventsState extends State<MembersEvents> {
                       ),
                     ),
           data.isNotEmpty
-              ? Divider(
+              ? const Divider(
                   thickness: 1.5,
                   height: 2,
                   color: Color.fromARGB(255, 154, 191, 222),
@@ -100,13 +100,13 @@ class _MembersEventsState extends State<MembersEvents> {
               return ListTile(
                 title: Text("${data[index]["username"]}"),
                 subtitle: Text("${data[index]["year"]}"),
-                titleTextStyle: TextStyle(
+                titleTextStyle: const TextStyle(
                   fontSize: 18,
                   color: Color.fromARGB(255, 31, 117, 115),
                   fontStyle: FontStyle.italic,
                 ),
                 trailing: Text(
-                  "$dateedited",
+                  dateedited,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 11,
@@ -122,7 +122,7 @@ class _MembersEventsState extends State<MembersEvents> {
                     placeholder: (context, url) => Lottie.asset(
                       "images/lottie_loading2.json",
                     ),
-                    errorWidget: (context, url, error) => Icon(
+                    errorWidget: (context, url, error) => const Icon(
                       Icons.error,
                       color: Colors.red,
                     ),

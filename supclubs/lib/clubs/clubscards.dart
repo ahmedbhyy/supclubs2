@@ -22,21 +22,21 @@ class ClubsCard extends StatelessWidget {
         Navigator.of(context).push(SlideRight(page: child));
       },
       child: Card(
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: const Color.fromARGB(255, 255, 255, 255),
         elevation: 5,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(20),
             bottomLeft: Radius.elliptical(20, 20),
           ),
-          side: const BorderSide(
+          side: BorderSide(
             color: Color.fromARGB(255, 169, 142, 187),
             width: 2.0,
           ),
         ),
         shadowColor: Colors.grey[800],
         child: ClipRRect(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topRight: Radius.circular(20),
             bottomLeft: Radius.elliptical(20, 20),
           ),

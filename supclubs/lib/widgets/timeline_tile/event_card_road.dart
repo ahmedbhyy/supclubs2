@@ -41,7 +41,7 @@ class MyCardRoad extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: isPast ? Colors.deepPurple[300] : Colors.deepPurple[100],
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topRight: Radius.circular(20),
             bottomLeft: Radius.elliptical(20, 20),
           ),
@@ -75,7 +75,7 @@ class MyCardRoad extends StatelessWidget {
                         icon: Icon(
                           Icons.verified_outlined,
                           color: isPast
-                              ? Color.fromARGB(255, 0, 253, 118)
+                              ? const Color.fromARGB(255, 0, 253, 118)
                               : const Color.fromARGB(255, 236, 233, 243),
                         ),
                       )

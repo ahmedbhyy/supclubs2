@@ -106,7 +106,7 @@ class _EventDetailsState extends State<EventDetails> {
                   placeholder: (context, url) => Lottie.asset(
                     "images/lottie_loading2.json",
                   ),
-                  errorWidget: (context, url, error) => Icon(
+                  errorWidget: (context, url, error) => const Icon(
                     Icons.error,
                     color: Colors.red,
                   ),
@@ -117,7 +117,7 @@ class _EventDetailsState extends State<EventDetails> {
           SafeArea(
             child: Container(
               margin: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20),
                   bottomLeft: Radius.elliptical(20, 20),
@@ -125,7 +125,7 @@ class _EventDetailsState extends State<EventDetails> {
                 border: Border.fromBorderSide(
                   BorderSide(color: Colors.lightBlue),
                 ),
-                color: const Color.fromARGB(121, 8, 174, 169),
+                color: Color.fromARGB(121, 8, 174, 169),
               ),
               width: double.maxFinite,
               child: Column(
@@ -230,6 +230,7 @@ class _EventDetailsState extends State<EventDetails> {
 
   Future<void> _launchUrl() async {
     if (!await launchUrl(Uri.parse(widget.eventurl))) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Error , Please try again later !"),

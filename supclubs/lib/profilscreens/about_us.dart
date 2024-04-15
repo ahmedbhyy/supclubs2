@@ -46,8 +46,8 @@ class _AboutUsState extends State<AboutUs> {
               direction: Axis.horizontal,
               allowHalfRating: true,
               itemCount: 5,
-              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => Icon(
+              itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+              itemBuilder: (context, _) => const Icon(
                 Icons.star_rate_sharp,
                 color: Colors.amber,
               ),
@@ -56,7 +56,7 @@ class _AboutUsState extends State<AboutUs> {
                   context: context,
                   title: "Sup'Clubs",
                   dismissOnTouchOutside: false,
-                  titleTextStyle: TextStyle(
+                  titleTextStyle: const TextStyle(
                     fontStyle: FontStyle.italic,
                     color: Colors.blueGrey,
                     fontWeight: FontWeight.bold,

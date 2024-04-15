@@ -81,9 +81,9 @@ class _TabBarView2State extends State<TabBarView2> {
           child: Column(
             children: [
               isloading
-                  ? LoadingForData(ver: 3.0, hor: 2.5, loadingsize: 30.0)
+                  ? const LoadingForData(ver: 3.0, hor: 2.5, loadingsize: 30.0)
                   : data.isEmpty
-                      ? EmptyData(text: "No Events", padd: 3.5)
+                      ? const EmptyData(text: "No Events", padd: 3.5)
                       : ListView.builder(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),

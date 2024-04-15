@@ -77,13 +77,13 @@ class _ClubWorkshopsState extends State<ClubWorkshops> {
         children: [
           AppBarProfil(
             title:
-                "${widget.name == "Team sup'com" ? "Team" : "${widget.name}"} Workshops",
+                "${widget.name == "Team sup'com" ? "Team" : widget.name} Workshops",
             lottie: "images/lottie_workshop.json",
           ),
           isloading
-              ? LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
+              ? const LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
               : data.isEmpty
-                  ? EmptyData(text: "No Workshops !", padd: 2.7)
+                  ? const EmptyData(text: "No Workshops !", padd: 2.7)
                   : ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

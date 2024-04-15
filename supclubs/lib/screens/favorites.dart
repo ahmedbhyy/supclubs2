@@ -89,9 +89,9 @@ class _FavoritesState extends State<Favorites> {
             lottie: "images/lottie_icon2.json",
           ),
           isloading
-              ? LoadingForData(ver: 2.8, hor: 2.2, loadingsize: 28.0)
+              ? const LoadingForData(ver: 2.8, hor: 2.2, loadingsize: 28.0)
               : data.isEmpty
-                  ? EmptyData(text: "No favorites clubs !", padd: 3.0)
+                  ? const EmptyData(text: "No favorites clubs !", padd: 3.0)
                   : GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

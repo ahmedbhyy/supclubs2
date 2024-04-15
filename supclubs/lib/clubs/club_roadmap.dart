@@ -61,9 +61,9 @@ class _ClubRoadMapState extends State<ClubRoadMap> {
             lottie: "images/lottie_grades.json",
           ),
           isloading
-              ? LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
+              ? const LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
               : data.isEmpty
-                  ? EmptyData(text: "Program not available", padd: 3.0)
+                  ? const EmptyData(text: "Program not available", padd: 3.0)
                   : ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

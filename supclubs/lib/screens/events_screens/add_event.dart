@@ -31,12 +31,13 @@ class _AddEventState extends State<AddEvent> {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   TextEditingController eventurl = TextEditingController();
 
+  // ignore: prefer_typing_uninitialized_variables
   var imageFile;
   bool isloading = false;
 
   String? imageUrl;
   List<String> yesno = ["No", "Yes"];
-  String Registraition = "No";
+  String registraition = "No";
   @override
   void initState() {
     super.initState();
@@ -88,7 +89,7 @@ class _AddEventState extends State<AddEvent> {
               lottie: "images/lottie_animation4.json",
             ),
             isloading
-                ? LoadingForData(ver: 20, hor: 20, loadingsize: 20)
+                ? const LoadingForData(ver: 20, hor: 20, loadingsize: 20)
                 : CircleAvatar(
                     radius: 100.0,
                     backgroundColor: Colors.blue[500],
@@ -203,7 +204,7 @@ class _AddEventState extends State<AddEvent> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text(
+                const Text(
                   "Registraition ?",
                   style: TextStyle(
                     fontSize: 20,
@@ -216,18 +217,18 @@ class _AddEventState extends State<AddEvent> {
                   initialLabelIndex: 0,
                   totalSwitches: 2,
                   animationDuration: 500,
-                  customTextStyles: [
+                  customTextStyles: const [
                     TextStyle(fontSize: 14, fontWeight: FontWeight.bold)
                   ],
                   activeFgColor: Colors.white,
-                  activeBgColor: [
+                  activeBgColor: const [
                     Colors.blue,
                     Colors.amber,
                   ],
                   animate: true,
                   labels: yesno,
                   onToggle: (index) {
-                    Registraition = yesno[index!];
+                    registraition = yesno[index!];
                   },
                 ),
               ],
@@ -319,7 +320,7 @@ class _AddEventState extends State<AddEvent> {
           'place': place,
           'userid': widget.userid,
           'time': time,
-          'register': Registraition,
+          'register': registraition,
           'description': description,
           'image': imageUrl.isEmpty
               ? "https://img.freepik.com/premium-vector/events-big-text-online-corporate-party-meeting-friends-colleagues-video-conference_501813-9.jpg"

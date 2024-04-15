@@ -14,13 +14,13 @@ class AboutSupcom extends StatefulWidget {
   });
 
   @override
-  _AboutSupcomState createState() => _AboutSupcomState();
+  AboutSupcomState createState() => AboutSupcomState();
 }
 
-class _AboutSupcomState extends State<AboutSupcom> {
+class AboutSupcomState extends State<AboutSupcom> {
   int _currentImageIndex = 0;
   late Timer _timer;
-  List<String> _imagePaths = [
+  final List<String> _imagePaths = [
     "images/SUPCOM.jpg",
     "images/supcom (1).jpg",
     "images/supcom2.jpg",
@@ -28,7 +28,7 @@ class _AboutSupcomState extends State<AboutSupcom> {
 
   @override
   void initState() {
-    _timer = Timer.periodic(Duration(seconds: 2), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
       setState(() {
         _currentImageIndex = (_currentImageIndex + 1) % _imagePaths.length;
       });
@@ -87,7 +87,7 @@ class _AboutSupcomState extends State<AboutSupcom> {
                               duration: const Duration(milliseconds: 900),
                               width: _currentImageIndex == index ? 20 : 5,
                               height: 10,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color.fromARGB(255, 240, 210, 222),
                                 shape: BoxShape.circle,
                               ),

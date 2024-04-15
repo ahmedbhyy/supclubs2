@@ -49,16 +49,16 @@ class _MemberInvitationState extends State<MemberInvitation> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
-        padding: EdgeInsets.only(top: 7, right: 5, left: 5),
+        padding: const EdgeInsets.only(top: 7, right: 5, left: 5),
         children: [
           const AppBarProfil(
             title: "Invitations",
             lottie: "images/lottie_invitation.json",
           ),
           isloading
-              ? LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
+              ? const LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
               : data.isEmpty
-                  ? EmptyData(text: "There is no invitations !", padd: 3.0)
+                  ? const EmptyData(text: "There is no invitations !", padd: 3.0)
                   : ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

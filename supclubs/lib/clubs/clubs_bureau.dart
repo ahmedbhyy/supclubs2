@@ -27,11 +27,11 @@ class _ClubsBureauState extends State<ClubsBureau> {
 
   @override
   void initState() {
-    _timer = Timer.periodic(Duration(seconds: 2), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
       setState(() {
         _currentImageIndex =
             (_currentImageIndex + 1) % widget.bureauimages.length;
-        ;
+        
       });
     });
     super.initState();
@@ -48,17 +48,17 @@ class _ClubsBureauState extends State<ClubsBureau> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 8,
           vertical: 8,
         ),
         children: [
           AppBarProfil(
             title:
-                "${widget.clubname == "Team sup'com" ? "Team" : "${widget.clubname}"} Leaders",
+                "${widget.clubname == "Team sup'com" ? "Team" : widget.clubname} Leaders",
             lottie: "images/lottie_animation5.json",
           ),
-          Container(
+          SizedBox(
             height: 270.0,
             child: Padding(
               padding: const EdgeInsets.only(
@@ -79,7 +79,7 @@ class _ClubsBureauState extends State<ClubsBureau> {
                         placeholder: (context, url) => Lottie.asset(
                           "images/lottie_loading2.json",
                         ),
-                        errorWidget: (context, url, error) => Icon(
+                        errorWidget: (context, url, error) => const Icon(
                           Icons.error,
                           color: Colors.red,
                         ),
@@ -98,7 +98,7 @@ class _ClubsBureauState extends State<ClubsBureau> {
                               duration: const Duration(milliseconds: 900),
                               width: _currentImageIndex == index ? 20 : 5,
                               height: 10,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color.fromARGB(255, 240, 210, 222),
                                 shape: BoxShape.circle,
                               ),
@@ -118,7 +118,7 @@ class _ClubsBureauState extends State<ClubsBureau> {
             itemBuilder: (context, index) {
               return ListTile(
                 title: Text("${widget.leadersinfo[index]}"),
-                titleTextStyle: TextStyle(
+                titleTextStyle: const TextStyle(
                     fontSize: 17.0,
                     color: Color.fromARGB(255, 31, 117, 115),
                     fontStyle: FontStyle.italic,
@@ -133,7 +133,7 @@ class _ClubsBureauState extends State<ClubsBureau> {
                     placeholder: (context, url) => Lottie.asset(
                       "images/lottie_loading2.json",
                     ),
-                    errorWidget: (context, url, error) => Icon(
+                    errorWidget: (context, url, error) => const Icon(
                       Icons.error,
                       color: Colors.red,
                     ),
@@ -153,7 +153,7 @@ class _ClubsBureauState extends State<ClubsBureau> {
                           placeholder: (context, url) => Lottie.asset(
                             "images/lottie_loading2.json",
                           ),
-                          errorWidget: (context, url, error) => Icon(
+                          errorWidget: (context, url, error) => const Icon(
                             Icons.error,
                             color: Colors.red,
                           ),

@@ -16,7 +16,7 @@ class ClubMembers extends StatefulWidget {
   final String clubid;
   final String clubiduser;
   const ClubMembers(
-      {Key? key,
+      {super.key,  
       required this.clubname,
       required this.clubid,
       required this.clubiduser});
@@ -105,12 +105,12 @@ class _ClubMembersState extends State<ClubMembers> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 252, 252, 252),
+        backgroundColor: const Color.fromARGB(255, 252, 252, 252),
       ),
       body: isloading
-          ? LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
+          ? const LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
           : data1.isEmpty
-              ? EmptyData(text: "No Members", padd: 3.0)
+              ? const EmptyData(text: "No Members", padd: 3.0)
               : Column(
                   children: [
                     Stack(
@@ -143,7 +143,7 @@ class _ClubMembersState extends State<ClubMembers> {
                                   horizontal:
                                       MediaQuery.of(context).size.width / 4.5,
                                 ),
-                                child: Text(
+                                child: const Text(
                                   "ranking not available ❌",
                                   style: TextStyle(
                                     fontSize: 20,
@@ -184,7 +184,7 @@ class _ClubMembersState extends State<ClubMembers> {
                     const SizedBox(height: 20),
                     Expanded(
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 213, 221, 227),
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(30.0),
@@ -206,7 +206,7 @@ class _ClubMembersState extends State<ClubMembers> {
                                                 children: [
                                                   Text(
                                                     "Add points to ${data1[index]["sendername"]} ? current points : (${data1[index]["userpoints"]})",
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                       fontStyle:
                                                           FontStyle.italic,
                                                       color: Colors.blueGrey,
@@ -250,7 +250,7 @@ class _ClubMembersState extends State<ClubMembers> {
                                 child: ListTile(
                                   title: Text("${data1[index]["sendername"]}"),
                                   subtitle: Text("${data1[index]["useryear"]}"),
-                                  titleTextStyle: TextStyle(
+                                  titleTextStyle: const TextStyle(
                                     fontSize: 17,
                                     color: Color.fromARGB(255, 31, 117, 115),
                                     fontStyle: FontStyle.italic,
@@ -286,8 +286,8 @@ class _ClubMembersState extends State<ClubMembers> {
                                           maxRadius: 10,
                                           backgroundColor: index >= 0 &&
                                                   index < numbers.length
-                                              ? Color.fromARGB(255, 255, 187, 0)
-                                              : Color.fromARGB(
+                                              ? const Color.fromARGB(255, 255, 187, 0)
+                                              : const Color.fromARGB(
                                                   255, 198, 107, 244),
                                           child: Text(
                                             "${index + 1}",
@@ -311,7 +311,7 @@ class _ClubMembersState extends State<ClubMembers> {
                                               width: 100,
                                             ),
                                             errorWidget:
-                                                (context, url, error) => Icon(
+                                                (context, url, error) => const Icon(
                                               Icons.error,
                                               color: Colors.red,
                                             ),
@@ -353,8 +353,8 @@ Column rank({
         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11.0),
       ),
       Container(
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(2),
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
           color: Colors.black54,
           borderRadius: BorderRadius.circular(50),

@@ -49,14 +49,14 @@ class _ComingMembersState extends State<ComingMembers> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         children: [
           AppBarProfil(
-            title: "${widget.workshoptitle}",
+            title: widget.workshoptitle,
             lottie: "images/lottie_workshop.json",
           ),
           isloading
-              ? LoadingForData(ver: 3.0, hor: 3.0, loadingsize: 20)
+              ? const LoadingForData(ver: 3.0, hor: 3.0, loadingsize: 20)
               : allcomingmembers.isEmpty
                   ? EmptyData(
                       text: "No coming Members for ${widget.workshoptitle}",
@@ -71,7 +71,7 @@ class _ComingMembersState extends State<ComingMembers> {
                           subtitle: Text(
                             "${allcomingmembers[index]["useryear"]}",
                           ),
-                          titleTextStyle: TextStyle(
+                          titleTextStyle: const TextStyle(
                             fontSize: 17,
                             color: Color.fromARGB(255, 81, 49, 221),
                             fontStyle: FontStyle.italic,
@@ -91,7 +91,7 @@ class _ComingMembersState extends State<ComingMembers> {
                                 placeholder: (context, url) => Lottie.asset(
                                   "images/lottie_loading2.json",
                                 ),
-                                errorWidget: (context, url, error) => Icon(
+                                errorWidget: (context, url, error) => const Icon(
                                   Icons.error,
                                   color: Colors.red,
                                 ),

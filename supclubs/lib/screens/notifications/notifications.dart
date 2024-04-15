@@ -78,9 +78,9 @@ class _NotificationsState extends State<Notifications> {
             lottie: "images/lottie_notification.json",
           ),
           isloading
-              ? LoadingForData(ver: 2.8, hor: 2.0, loadingsize: 28.0)
+              ? const LoadingForData(ver: 2.8, hor: 2.0, loadingsize: 28.0)
               : userData.isEmpty
-                  ? EmptyData(text: "There is no notifications", padd: 3)
+                  ? const EmptyData(text: "There is no notifications", padd: 3)
                   : ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

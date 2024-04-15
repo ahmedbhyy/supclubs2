@@ -50,7 +50,7 @@ class NotificationDetails extends StatelessWidget {
                     "images/lottie_loading2.json",
                     width: 100,
                   ),
-                  errorWidget: (context, url, error) => Icon(
+                  errorWidget: (context, url, error) => const Icon(
                     Icons.error,
                     color: Colors.red,
                   ),
@@ -61,7 +61,7 @@ class NotificationDetails extends StatelessWidget {
           SafeArea(
             child: Container(
               margin: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20),
                   bottomLeft: Radius.elliptical(20, 20),
@@ -69,7 +69,7 @@ class NotificationDetails extends StatelessWidget {
                 border: Border.fromBorderSide(
                   BorderSide(color: Colors.lightBlue),
                 ),
-                color: const Color.fromARGB(121, 8, 174, 169),
+                color: Color.fromARGB(121, 8, 174, 169),
               ),
               width: double.maxFinite,
               child: Column(

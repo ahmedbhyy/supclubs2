@@ -131,7 +131,7 @@ class _TabBarView1State extends State<TabBarView1> {
             ),
             const SizedBox(height: 15),
             isloading
-                ? LoadingForData(ver: 6.0, hor: 3.0, loadingsize: 25.0)
+                ? const LoadingForData(ver: 6.0, hor: 3.0, loadingsize: 25.0)
                 : GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),

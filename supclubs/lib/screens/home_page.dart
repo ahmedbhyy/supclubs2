@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Colors.blue[800],
-          content: Text(
+          content: const Text(
             'une erreur est survenue lors de l\'importation du l\'image veuillez réessayer ultérieurement',
             style: TextStyle(
               fontStyle: FontStyle.italic,
@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                 ],
                 isRepeatingAnimation: true,
                 totalRepeatCount: 50,
-                pause: Duration(milliseconds: 50),
+                pause: const Duration(milliseconds: 50),
               ),
               actions: [
                 Lottie.asset("images/lottie_home.json"),

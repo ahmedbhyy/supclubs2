@@ -64,7 +64,7 @@ class InvitationCard extends StatelessWidget {
                   placeholder: (context, url) => Lottie.asset(
                     "images/lottie_loading2.json",
                   ),
-                  errorWidget: (context, url, error) => Icon(
+                  errorWidget: (context, url, error) => const Icon(
                     Icons.error,
                     color: Colors.red,
                   ),

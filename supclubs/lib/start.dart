@@ -45,7 +45,7 @@ class _StartScreensState extends State<StartScreens> {
      FirebaseMessaging.instance.subscribeToTopic('events');
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => Notifications()));
+          .push(MaterialPageRoute(builder: (context) => const Notifications()));
     });
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       if (message.notification != null) {
@@ -72,14 +72,14 @@ class _StartScreensState extends State<StartScreens> {
         reverseAnimationCurve: Curves.bounceIn,
         position: FlashPosition.top,
         indicatorColor: Colors.red,
-        icon: Icon(Icons.tips_and_updates_outlined),
+        icon: const Icon(Icons.tips_and_updates_outlined),
         title: Text(title),
         titleTextStyle:
             TextStyle(fontWeight: FontWeight.bold, color: Colors.blue[900]),
         content: Text(message),
         actions: [
           TextButton(
-              onPressed: () => controller.dismiss(true), child: Text('Ok'))
+              onPressed: () => controller.dismiss(true), child: const Text('Ok'))
         ],
       ),
     );
@@ -110,7 +110,7 @@ class _StartScreensState extends State<StartScreens> {
               .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return LoadingForData(ver: 2.4, hor: 2.0, loadingsize: 24);
+              return const LoadingForData(ver: 2.4, hor: 2.0, loadingsize: 24);
             } else if (snapshot.hasError) {
               return const Center(
                 child: Text('Error ,Please check your internet connection!'),

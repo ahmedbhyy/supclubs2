@@ -19,7 +19,7 @@ class LoadingForData extends StatelessWidget {
         horizontal: MediaQuery.of(context).size.width / hor,
       ),
       child: LoadingAnimationWidget.inkDrop(
-        color: Color.fromARGB(255, 85, 27, 231),
+        color: const Color.fromARGB(255, 85, 27, 231),
         size: loadingsize,
       ),
     );

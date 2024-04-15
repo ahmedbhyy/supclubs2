@@ -153,7 +153,7 @@ class _EditProfilState extends State<EditProfil> {
               ),
               const SizedBox(height: 20),
               _isLoading
-                  ? LoadingForData(ver: 3, hor: 2.2, loadingsize: 30)
+                  ? const LoadingForData(ver: 3, hor: 2.2, loadingsize: 30)
                   : Column(
                       children: [
                         imageProfile(),
@@ -211,11 +211,11 @@ class _EditProfilState extends State<EditProfil> {
                           initialLabelIndex: indexlist(),
                           totalSwitches: 4,
                           animationDuration: 500,
-                          customTextStyles: [
+                          customTextStyles: const [
                             TextStyle(fontSize: 12, fontWeight: FontWeight.bold)
                           ],
                           activeFgColor: Colors.white,
-                          activeBgColor: [
+                          activeBgColor: const [
                             Colors.blue,
                             Colors.amber,
                           ],

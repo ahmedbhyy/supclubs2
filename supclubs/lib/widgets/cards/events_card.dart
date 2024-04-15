@@ -68,7 +68,7 @@ class EventsCard extends StatelessWidget {
                       "images/lottie_loading2.json",
                       width: 100,
                     ),
-                    errorWidget: (context, url, error) => Icon(
+                    errorWidget: (context, url, error) => const Icon(
                       Icons.error_outline,
                       color: Colors.red,
                     ),

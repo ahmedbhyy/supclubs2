@@ -59,7 +59,7 @@ class _TabBarView3State extends State<TabBarView3> {
       setState(() {});
       DateTime currentDate = DateTime.now();
 
-      DateTime threeDaysAgo = currentDate.subtract(Duration(days: 5));
+      DateTime threeDaysAgo = currentDate.subtract(const Duration(days: 5));
       DocumentSnapshot userDoc = await FirebaseFirestore.instance
           .collection('users')
           .doc(user!.uid)
@@ -152,7 +152,7 @@ class _TabBarView3State extends State<TabBarView3> {
             "we have added this workshop to your members schedule",
             DialogType.success);
         funcsendnotification(
-            "${title.text}", "${date.text}", "$formattedTime", "${place.text}");
+            title.text, date.text, "$formattedTime", place.text);
       } else {
         showDialoge("Error", "Please try again later", DialogType.error);
       }
@@ -165,7 +165,7 @@ class _TabBarView3State extends State<TabBarView3> {
       String title1, String date1, String ftime, String place1) async {
     for (int i = 0; i < data1.length; i++) {
       await sendnotification("${widget.clubnameuser} : $title1",
-          "${date1} / ${ftime} , (${place1})", widget.clubimguser, data1[i]);
+          "$date1 / $ftime , ($place1)", widget.clubimguser, data1[i]);
     }
   }
 
@@ -374,7 +374,7 @@ class _TabBarView3State extends State<TabBarView3> {
             )
           : null,
       body: isloading
-          ? LoadingForData(ver: 2.8, hor: 2.0, loadingsize: 28.0)
+          ? const LoadingForData(ver: 2.8, hor: 2.0, loadingsize: 28.0)
           : SfCalendar(
               showCurrentTimeIndicator: false,
               timeSlotViewSettings:
@@ -414,7 +414,7 @@ class _TabBarView3State extends State<TabBarView3> {
                                 DateFormat('HH:mm').format(meetings[i].from);
                             await funcsendnotification(
                                 "${widget.clubnameuser} (Remind): $startTime1",
-                                "${meetings[i].description}",
+                                meetings[i].description,
                                 "Remind",
                                 "Be there!");
 
@@ -467,8 +467,9 @@ class _TabBarView3State extends State<TabBarView3> {
               .collection('workshops')
               .doc(docSnapshot.id)
               .update({'comingmembers': comingMembers});
+          // ignore: use_build_context_synchronously
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
               content: Text(
                 "Thank you for your confirmation ❤️",
                 textAlign: TextAlign.center,
@@ -478,8 +479,9 @@ class _TabBarView3State extends State<TabBarView3> {
           );
           setState(() {});
         } else {
+          // ignore: use_build_context_synchronously
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
+            const SnackBar(
               content: Text(
                 "You have already confirm !!",
                 textAlign: TextAlign.center,
@@ -519,7 +521,7 @@ class _TabBarView3State extends State<TabBarView3> {
             startTime,
             endTime,
             userData[i]["clubname"] == clubsnames[0]
-                ? Color.fromARGB(255, 227, 227, 47)
+                ? const Color.fromARGB(255, 227, 227, 47)
                 : userData[i]["clubname"] == clubsnames[1]
                     ? Colors.blue[600]
                     : userData[i]["clubname"] == clubsnames[2]
@@ -531,10 +533,10 @@ class _TabBarView3State extends State<TabBarView3> {
                                 : userData[i]["clubname"] == clubsnames[5]
                                     ? Colors.orange
                                     : userData[i]["clubname"] == clubsnames[6]
-                                        ? Color.fromARGB(255, 25, 153, 200)
+                                        ? const Color.fromARGB(255, 25, 153, 200)
                                         : userData[i]["clubname"] ==
                                                 clubsnames[7]
-                                            ? Color.fromARGB(255, 167, 65, 34)
+                                            ? const Color.fromARGB(255, 167, 65, 34)
                                             : userData[i]["clubname"] ==
                                                     clubsnames[8]
                                                 ? Colors.blue[800]

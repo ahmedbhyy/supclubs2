@@ -397,7 +397,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                 },
                                 child: Row(
                                   children: [
-                                    Text(
+                                    const Text(
                                       'About Us',
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
@@ -506,7 +506,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                       SlideRight(
                                         page: ClubWorkshops(
                                             name: widget.name,
-                                            membersnumber: data.length == 0
+                                            membersnumber: data.isEmpty
                                                 ? 1
                                                 : data.length,
                                             ispresidant: widget.clubiduser,
@@ -649,6 +649,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
 
   Future<void> _launchUrl(Uri url) async {
     if (!await launchUrl(url)) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Error , Please try again later !"),

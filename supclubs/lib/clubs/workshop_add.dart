@@ -44,7 +44,7 @@ class _AddWorkshopState extends State<AddWorkshop> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: Colors.blue[800],
-              content: Text(
+              content: const Text(
                 'No file selected',
                 style: TextStyle(
                   fontStyle: FontStyle.italic,
@@ -59,7 +59,7 @@ class _AddWorkshopState extends State<AddWorkshop> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             backgroundColor: Colors.blue[800],
-            content: Text(
+            content: const Text(
               'No file selected',
               style: TextStyle(
                 fontStyle: FontStyle.italic,
