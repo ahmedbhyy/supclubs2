@@ -67,8 +67,6 @@ class _EditProfilState extends State<EditProfil> {
     super.initState();
   }
 
- 
-
   void fetchProfileImage() {
     final store = FirebaseStorage.instance.ref();
     final newprofilpic = FirebaseAuth.instance.currentUser!.uid;
@@ -304,7 +302,6 @@ class _EditProfilState extends State<EditProfil> {
           'admin': false,
           'clubimage': 'nothing',
           'appvote': 0.0,
-      
         }, SetOptions(merge: true));
       }
 
@@ -399,8 +396,8 @@ class _EditProfilState extends State<EditProfil> {
               : Lottie.asset("images/lottie_edit.json", height: 200),
         ),
         Positioned(
-          bottom: 20.0,
-          right: 10.0,
+          bottom: 15.0,
+          right: 5.0,
           child: InkWell(
             onTap: () {
               showModalBottomSheet(
@@ -410,7 +407,7 @@ class _EditProfilState extends State<EditProfil> {
             },
             child: const Icon(
               Icons.camera_alt,
-              color: Color.fromARGB(255, 182, 5, 120),
+              color: Color.fromARGB(255, 125, 129, 144),
               size: 28.0,
             ),
           ),
