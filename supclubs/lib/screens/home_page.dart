@@ -11,10 +11,9 @@ import 'package:supclubs/tab_bar_view/tab_bar_view3.dart';
 import 'package:supclubs/widgets/slides/slide_top.dart';
 
 const colorizeColors = [
-  Colors.purple,
   Colors.blue,
-  Colors.yellow,
-  Colors.red,
+  Colors.green,
+  Colors.purple,
 ];
 
 class HomePage extends StatefulWidget {
