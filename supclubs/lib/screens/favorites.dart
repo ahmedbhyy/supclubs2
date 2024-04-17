@@ -85,7 +85,7 @@ class _FavoritesState extends State<Favorites> {
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         children: [
           const AppBarProfil(
-            title: "Favorites Clubs",
+            title: "Favorite Clubs",
             lottie: "images/lottie_icon2.json",
           ),
           isloading

@@ -347,7 +347,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                 child: Row(
                                   children: [
                                     Lottie.asset("images/lottie_icon2.json",
-                                        height: 55),
+                                        height: 55, repeat: false),
                                     DefaultTextStyle(
                                       style: const TextStyle(
                                         fontSize: 24,
@@ -506,9 +506,8 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                       SlideRight(
                                         page: ClubWorkshops(
                                             name: widget.name,
-                                            membersnumber: data.isEmpty
-                                                ? 1
-                                                : data.length,
+                                            membersnumber:
+                                                data.isEmpty ? 1 : data.length,
                                             ispresidant: widget.clubiduser,
                                             id: widget.clubid),
                                       ),
