@@ -8,7 +8,7 @@ import 'package:supclubs/profilscreens/about_us.dart';
 import 'package:supclubs/profilscreens/edit_profil.dart';
 import 'package:supclubs/profilscreens/about_supcom.dart';
 import 'package:supclubs/profilscreens/invitation_screens/member_invitaion.dart';
-import 'package:supclubs/profilscreens/university_grades.dart';
+
 import 'package:supclubs/profilscreens/widget_profil/common_appbar.dart';
 import 'package:supclubs/profilscreens/workshopsadmin/workshops_comingmembers.dart';
 import 'package:supclubs/widgets/cards/card_profil.dart';
@@ -68,11 +68,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
               year: widget.year,*/
                 ),
           ),
-          CardProfil(
-            title: "University grades",
-            path: "images/lottie_grades.json",
-            child: GradesUniversity(useryear: widget.year),
-          ),
+         
           const CardProfil(
             title: "About Sup'com",
             path: "images/lottie_university.json",
