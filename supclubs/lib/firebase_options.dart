@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAMfijnK_-H6V3RFxHgvTVPEzohMAoX5kg',
-    appId: '1:1080219543683:android:27c50aeff2c0ed1ae713b6',
+    appId: '1:1080219543683:android:613d81cb236370d4e713b6',
     messagingSenderId: '1080219543683',
     projectId: 'supclubs',
     storageBucket: 'supclubs.appspot.com',
