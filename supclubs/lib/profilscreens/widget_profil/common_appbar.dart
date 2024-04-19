@@ -1,4 +1,4 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -27,22 +27,17 @@ class AppBarProfil extends StatelessWidget {
             )
           : Container(),
       title: DefaultTextStyle(
-        style: GoogleFonts.abel(
-          fontSize: 28,
-          fontWeight: FontWeight.bold,
-          fontStyle: FontStyle.italic,
-          color: Colors.blue,
-        ),
-        child: AnimatedTextKit(
-          animatedTexts: [
-            WavyAnimatedText(title),
-          ],
-          isRepeatingAnimation: false,
-          displayFullTextOnTap: true,
-        ),
-      ),
+          style: GoogleFonts.abel(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.italic,
+            color: Colors.blue,
+          ),
+          child: Text(
+              title) ,
+          ),
       actions: [
-        Lottie.asset(lottie),
+        Lottie.asset(lottie, repeat: false),
       ],
     );
   }

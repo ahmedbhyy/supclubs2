@@ -73,66 +73,68 @@ class _TabBarView1State extends State<TabBarView1> {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(25),
-                child: AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: <Widget>[
-                      VideoPlayer(_controller),
-                      _ControlsOverlay(controller: _controller),
-                      VideoProgressIndicator(_controller, allowScrubbing: true),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      "Clubs",
-                      style: GoogleFonts.aclonica(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: const Color.fromARGB(255, 17, 178, 206),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Lottie.asset("images/lottie_missile.json", width: 40),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Lottie.asset("images/lottie_location.json", width: 35),
-                    InkWell(
-                      onTap: () {
-                        _launchUrl();
-                      },
-                      child: Text(
-                        "Sup'com",
-                        style: GoogleFonts.aclonica(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                          color: const Color.fromARGB(255, 7, 83, 236),
+        child: !isloading
+            ? Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(25),
+                      child: AspectRatio(
+                        aspectRatio: _controller.value.aspectRatio,
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: <Widget>[
+                            VideoPlayer(_controller),
+                            _ControlsOverlay(controller: _controller),
+                            VideoProgressIndicator(_controller,
+                                allowScrubbing: true),
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 15),
-            isloading
-                ? const LoadingForData(ver: 6.0, hor: 3.0, loadingsize: 25.0)
-                : GridView.builder(
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "Clubs",
+                            style: GoogleFonts.aclonica(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: const Color.fromARGB(255, 17, 178, 206),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Lottie.asset("images/lottie_missile.json", width: 40),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Lottie.asset("images/lottie_location.json",
+                              width: 35),
+                          InkWell(
+                            onTap: () {
+                              _launchUrl();
+                            },
+                            child: Text(
+                              "Sup'com",
+                              style: GoogleFonts.aclonica(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: const Color.fromARGB(255, 7, 83, 236),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                  GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate:
@@ -164,8 +166,9 @@ class _TabBarView1State extends State<TabBarView1> {
                       );
                     },
                   ),
-          ],
-        ),
+                ],
+              )
+            : const LoadingForData(ver: 6.0, hor: 3.0, loadingsize: 25.0),
       ),
     );
   }

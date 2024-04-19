@@ -360,8 +360,8 @@ class _SignInState extends State<SignIn> {
                                 ),
                               ),
                               InkWell(
-                                onTap: () {
-                                  signInWithGoogle();
+                                onTap: () async {
+                                  await signInWithGoogle();
                                 },
                                 child: Image.asset(
                                   "images/google.png",

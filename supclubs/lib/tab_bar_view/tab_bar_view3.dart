@@ -374,7 +374,7 @@ class _TabBarView3State extends State<TabBarView3> {
             )
           : null,
       body: isloading
-          ? const LoadingForData(ver: 2.8, hor: 2.0, loadingsize: 28.0)
+          ? const LoadingForData(ver: 2.8, hor: 2.1, loadingsize: 25.0)
           : SfCalendar(
               showCurrentTimeIndicator: false,
               timeSlotViewSettings:
@@ -533,10 +533,12 @@ class _TabBarView3State extends State<TabBarView3> {
                                 : userData[i]["clubname"] == clubsnames[5]
                                     ? Colors.orange
                                     : userData[i]["clubname"] == clubsnames[6]
-                                        ? const Color.fromARGB(255, 25, 153, 200)
+                                        ? const Color.fromARGB(
+                                            255, 25, 153, 200)
                                         : userData[i]["clubname"] ==
                                                 clubsnames[7]
-                                            ? const Color.fromARGB(255, 167, 65, 34)
+                                            ? const Color.fromARGB(
+                                                255, 167, 65, 34)
                                             : userData[i]["clubname"] ==
                                                     clubsnames[8]
                                                 ? Colors.blue[800]

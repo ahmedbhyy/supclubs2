@@ -58,17 +58,12 @@ class _ProfilScreenState extends State<ProfilScreen> {
             title: "My Profil",
             lottie: "images/lottie_animation4.json",
           ),
-          Lottie.asset("images/lottie_person.json", height: 230),
+          Lottie.asset("images/lottie_person.json", height: 230, repeat: false),
           const CardProfil(
             title: "Edit Profil",
             path: "images/lottie_arrow.json",
-            child: EditProfil(
-                /*phone: widget.phone,
-              username: widget.username,
-              year: widget.year,*/
-                ),
+            child: EditProfil(),
           ),
-         
           const CardProfil(
             title: "About Sup'com",
             path: "images/lottie_university.json",
@@ -124,7 +119,8 @@ class _ProfilScreenState extends State<ProfilScreen> {
                         color: Colors.red,
                         fontStyle: FontStyle.italic),
                   ),
-                  Lottie.asset("images/lottie_logout.json", height: 60),
+                  Lottie.asset("images/lottie_logout.json",
+                      height: 60, repeat: false),
                 ],
               ),
             ),
