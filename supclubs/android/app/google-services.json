@@ -58,6 +58,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1080219543683-igl80idas1n5sslb99f7h66m8e9broui.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.supclubs.supcom",
+            "certificate_hash": "ed72ee59753547bcc7599deb568d3321f816227a"
+          }
+        },
+        {
           "client_id": "1080219543683-bnujm4tdhajdv6apl55hafl0pfckn9hc.apps.googleusercontent.com",
           "client_type": 3
         }
