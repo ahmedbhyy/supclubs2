@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -55,34 +56,39 @@ class _SignInState extends State<SignIn> {
   }
 
   Future signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    if (googleUser == null) {
-      return;
-    }
-
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
-    isloading = true;
-    setState(() {});
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    await FirebaseAuth.instance.signInWithCredential(credential);
-    if (FirebaseAuth.instance.currentUser != null) {
-      DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
-          .collection("users")
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .get();
-
-      if (userSnapshot.exists) {
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil("start", (route) => false);
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        return Get.rawSnackbar(
+            title: "Google Sign in", message: "no account selected ");
       } else {
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil("editprofil", (route) => false);
+        final GoogleSignInAuthentication googleAuth =
+            await googleUser.authentication;
+        isloading = true;
+        setState(() {});
+        final credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+
+        await FirebaseAuth.instance.signInWithCredential(credential);
+        if (FirebaseAuth.instance.currentUser != null) {
+          DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+              .collection("users")
+              .doc(FirebaseAuth.instance.currentUser!.uid)
+              .get();
+
+          if (userSnapshot.exists) {
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("start", (route) => false);
+          } else {
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("editprofil", (route) => false);
+          }
+        }
       }
+    } catch (e) {
+      return Get.rawSnackbar(title: "Error", message: "Please try again");
     }
   }
 
