@@ -31,7 +31,6 @@ class _ClubsBureauState extends State<ClubsBureau> {
       setState(() {
         _currentImageIndex =
             (_currentImageIndex + 1) % widget.bureauimages.length;
-        
       });
     });
     super.initState();
@@ -144,20 +143,9 @@ class _ClubsBureauState extends State<ClubsBureau> {
                         widget.clubimage,
                         width: 50.0,
                       )
-                    : ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              "https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-1/406140531_122110456598117781_1390434605966003213_n.jpg?stp=c41.0.320.320a_dst-jpg_p320x320&_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=19zrUDabDlMAX9cPeOM&_nc_ht=scontent.ftun10-1.fna&oh=00_AfBrQcQ2AC12TuNw4i-yYj4s0KGbQW9rymhvrsgU8mpmeg&oe=66064BB5",
-                          width: 40.0,
-                          placeholder: (context, url) => Lottie.asset(
-                            "images/lottie_loading2.json",
-                          ),
-                          errorWidget: (context, url, error) => const Icon(
-                            Icons.error,
-                            color: Colors.red,
-                          ),
-                        ),
+                    : Image.asset(
+                        "images/mls.png",
+                        width: 45.0,
                       ),
               );
             },

@@ -62,8 +62,9 @@ class _FavoritesState extends State<Favorites> {
         }
       }
 
-      isloading = false;
-      setState(() {});
+      setState(() {
+        isloading = false;
+      });
     } catch (e) {
       return;
     }
