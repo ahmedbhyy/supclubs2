@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:supclubs/profilscreens/profil_screen.dart';
@@ -60,30 +61,26 @@ class _HomePageState extends State<HomePage> {
     fetchProfileImage();
   }
 
-  void fetchProfileImage() {
+  fetchProfileImage() {
     final store = FirebaseStorage.instance.ref();
     final newprofilpic = FirebaseAuth.instance.currentUser!.uid;
     final pdpref = store.child("profil/$newprofilpic.jpg");
+
     try {
       pdpref.getDownloadURL().then((value) {
         setState(() {
           _imageFile = value;
         });
-      }, onError: (val) {});
+      }, onError: (val) {
+        _imageFile =
+            "https://img.freepik.com/premium-vector/young-happy-man-with-thumbs-up-vector-flat-style-cartoon-illustration_357257-1138.jpg";
+      });
     } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          backgroundColor: Colors.blue[800],
-          content: const Text(
-            'une erreur est survenue lors de l\'importation du l\'image veuillez réessayer ultérieurement',
-            style: TextStyle(
-              fontStyle: FontStyle.italic,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      );
+      return Get.rawSnackbar(
+          title: "Error",
+          message:
+              "une erreur est survenue lors de l'importation du l'image veuillez réessayer ultérieurement",
+          backgroundColor: Colors.red);
     }
   }
 
