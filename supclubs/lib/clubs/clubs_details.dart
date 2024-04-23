@@ -425,7 +425,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                 child: Row(
                                   children: [
                                     Lottie.asset("images/lottie_workshop.json",
-                                        height: 40),
+                                        height: 40, repeat: false),
                                     const SizedBox(width: 7),
                                     const Text(
                                       'Planning',

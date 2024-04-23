@@ -88,7 +88,7 @@ class _SignInState extends State<SignIn> {
         }
       }
     } catch (e) {
-      return Get.rawSnackbar(title: "Error", message: "Please try again");
+      return Get.rawSnackbar(title: "Error", message: "Please try again $e");
     }
   }
 
