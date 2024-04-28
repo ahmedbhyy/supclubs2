@@ -618,7 +618,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
       setState(() {});
       showdialog(
           "Invitation",
-          "Your invitation was send successffuly to ${widget.name}",
+          "Your invitation was send successfully to ${widget.name}",
           DialogType.success);
     } catch (e) {
       showdialog("Error", "Please try again later.", DialogType.error);

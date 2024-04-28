@@ -79,7 +79,7 @@ class _AboutUsState extends State<AboutUs> {
               horizontal: 15,
             ),
             child: Text(
-              "SUP’COM considère que la vie extra-scolaire, notamment dans ses dimensions associatives, citoyennes, sportives et culturelles est un élément fondamental pour la réalisation des objectifs de formation et l’épanouissement de ses étudiants.",
+              "Explore a dynamic calendar packed with club events, from social mixers to skill-building workshops. Dive into a diverse array of workshops tailored to your interests and academic pursuits.",
               textAlign: TextAlign.center,
               style: GoogleFonts.abel(
                 fontWeight: FontWeight.bold,

@@ -85,13 +85,13 @@ class _AddWorkshopState extends State<AddWorkshop> {
                     context: context,
                     dialogType: DialogType.success,
                     animType: AnimType.rightSlide,
-                    title: 'File saved succeffuly',
+                    title: 'File saved successfully',
                     titleTextStyle: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.red,
                       fontSize: 25,
                     ),
-                    desc: 'Your workshops added succeffuly',
+                    desc: 'Your workshops has been added successfully',
                     descTextStyle: const TextStyle(fontSize: 18),
                     btnOkOnPress: () {
                       Navigator.pop(context);
