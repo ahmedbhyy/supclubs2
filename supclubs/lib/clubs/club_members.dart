@@ -42,13 +42,12 @@ class _ClubMembersState extends State<ClubMembers> {
         .get();
 
     data1.addAll(querySnapshot.docs);
-
+isloading = false;
+    setState(() {});
     data1.sort((a, b) => b["userpoints"].compareTo(a["userpoints"]));
     if (data1.length >= 2) {
       data2.addAll([data1[0], data1[1], data1[2]]);
     }
-    isloading = false;
-    setState(() {});
   }
 
   Future<void> updateUserPoints(int index, double newPoints) async {
@@ -81,12 +80,13 @@ class _ClubMembersState extends State<ClubMembers> {
           ),
           child: AnimatedTextKit(
             animatedTexts: [
-              WavyAnimatedText("${widget.clubname} Members"),
+              WavyAnimatedText("Club Members"),
             ],
             isRepeatingAnimation: false,
             displayFullTextOnTap: true,
           ),
         ),
+        elevation: 0.0,
         surfaceTintColor: Colors.white,
         actions: [
           Lottie.asset("images/lottie_workshop.json"),
