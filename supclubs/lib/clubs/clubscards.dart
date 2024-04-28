@@ -43,7 +43,7 @@ class ClubsCard extends StatelessWidget {
           child: Image.asset(
             source,
             fit: BoxFit.fill,
-            filterQuality: FilterQuality.medium,
+            filterQuality: FilterQuality.low,
             frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
               if (wasSynchronouslyLoaded || frame != null) {
                 return child;
