@@ -63,7 +63,7 @@ class _SignUpState extends State<SignUp> {
                       FadeInUp(
                         duration: const Duration(milliseconds: 900),
                         child: Lottie.asset("images/lottie_animation3.json",
-                            height: 220),
+                            height: 220, repeat: false),
                       ),
                       FadeInUp(
                         duration: const Duration(milliseconds: 1000),

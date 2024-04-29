@@ -42,7 +42,7 @@ class _StartScreensState extends State<StartScreens> {
   @override
   void initState() {
     _user = _auth.currentUser!;
-     FirebaseMessaging.instance.subscribeToTopic('events');
+    FirebaseMessaging.instance.subscribeToTopic('events');
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => const Notifications()));
@@ -79,7 +79,8 @@ class _StartScreensState extends State<StartScreens> {
         content: Text(message),
         actions: [
           TextButton(
-              onPressed: () => controller.dismiss(true), child: const Text('Ok'))
+              onPressed: () => controller.dismiss(true),
+              child: const Text('Ok'))
         ],
       ),
     );
@@ -138,7 +139,8 @@ class _StartScreensState extends State<StartScreens> {
         buttonBackgroundColor: const Color.fromARGB(255, 227, 231, 215),
         items: [
           CurvedNavigationBarItem(
-            child: Lottie.asset("images/lottie_home1.json", height: 30),
+            child: Lottie.asset("images/lottie_home1.json",
+                height: 30, repeat: false),
             label: 'Home',
             labelStyle: const TextStyle(
               fontSize: 16,
@@ -147,8 +149,10 @@ class _StartScreensState extends State<StartScreens> {
           ),
           CurvedNavigationBarItem(
             child: _selectedIndex == 1
-                ? Lottie.asset("images/lottie_icon2.json", height: 30)
-                : Lottie.asset("images/lottie_icon2.json", height: 40),
+                ? Lottie.asset("images/lottie_icon2.json",
+                    height: 30, repeat: false)
+                : Lottie.asset("images/lottie_icon2.json",
+                    height: 40, repeat: false),
             label: 'Favorites',
             labelStyle: const TextStyle(
               fontSize: 16,
@@ -158,8 +162,9 @@ class _StartScreensState extends State<StartScreens> {
           CurvedNavigationBarItem(
             child: _selectedIndex == 2
                 ? Lottie.asset("images/lottie_notification.json",
-                    height: 40, width: 30)
-                : Lottie.asset("images/lottie_notification.json", height: 50),
+                    height: 40, width: 30, repeat: false)
+                : Lottie.asset("images/lottie_notification.json",
+                    height: 50, repeat: false),
             label: 'Notifications',
             labelStyle: const TextStyle(
               fontSize: 16,

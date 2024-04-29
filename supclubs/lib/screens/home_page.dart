@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                 pause: const Duration(milliseconds: 50),
               ),
               actions: [
-                Lottie.asset("images/lottie_home.json"),
+                Lottie.asset("images/lottie_home.json", repeat: false),
               ],
               bottom: TabBar(
                 tabs: const [

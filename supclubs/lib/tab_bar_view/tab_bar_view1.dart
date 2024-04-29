@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
@@ -8,7 +10,6 @@ import 'package:supclubs/clubs/clubscards.dart';
 import 'package:supclubs/clubs/clubs_details.dart';
 import 'package:supclubs/widgets/generalwidgets/commonloading.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:video_player/video_player.dart';
 
 class TabBarView1 extends StatefulWidget {
   final String username;
@@ -31,9 +32,9 @@ class TabBarView1 extends StatefulWidget {
 }
 
 class _TabBarView1State extends State<TabBarView1> {
-  late VideoPlayerController _controller;
   bool isloading = false;
   List<QueryDocumentSnapshot> data = [];
+  List<QueryDocumentSnapshot> data1 = [];
 
   getData() async {
     isloading = true;
@@ -41,30 +42,31 @@ class _TabBarView1State extends State<TabBarView1> {
     QuerySnapshot querySnapshot =
         await FirebaseFirestore.instance.collection('clubs').get();
     data.addAll(querySnapshot.docs);
+    QuerySnapshot querySnapshot1 =
+        await FirebaseFirestore.instance.collection('events').get();
+    data1.addAll(querySnapshot1.docs);
     isloading = false;
     setState(() {});
   }
 
+  late Timer _timer;
+  int _currentImageIndex = 0;
+
   @override
   void initState() {
     getData();
-
-    _controller = VideoPlayerController.asset(
-      'images/myvideo.mp4',
-      videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
-    );
-
-    _controller.addListener(() {
-      setState(() {});
+    _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
+      setState(() {
+        _currentImageIndex = (_currentImageIndex + 1) % data1.length;
+      });
     });
-    _controller.setLooping(true);
-    _controller.initialize().then((_) {});
+
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _timer.cancel();
     super.dispose();
   }
 
@@ -78,20 +80,54 @@ class _TabBarView1State extends State<TabBarView1> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(25),
-                      child: AspectRatio(
-                        aspectRatio: _controller.value.aspectRatio,
-                        child: Stack(
-                          alignment: Alignment.bottomCenter,
-                          children: <Widget>[
-                            VideoPlayer(_controller),
-                            _ControlsOverlay(controller: _controller),
-                            VideoProgressIndicator(_controller,
-                                allowScrubbing: true),
-                          ],
-                        ),
+                      vertical: 30,
+                    ),
+                    child: AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 500),
+                      child: Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          ClipRRect(
+                            key: UniqueKey(),
+                            borderRadius: BorderRadius.circular(30),
+                            child: Image.network(
+                              data1[_currentImageIndex]["image"],
+                              width: MediaQuery.of(context).size.width / 1.1,
+                              height: MediaQuery.of(context).size.height / 4,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          Positioned(
+                            top: MediaQuery.of(context).size.height / 4.5,
+                            right: MediaQuery.of(context).size.width / 2.5,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ...List.generate(
+                                  data1.length,
+                                  (index) => AnimatedContainer(
+                                    margin: const EdgeInsets.only(right: 5.0),
+                                    duration: const Duration(milliseconds: 900),
+                                    width: _currentImageIndex == index ? 20 : 5,
+                                    height: 10,
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 240, 210, 222),
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            top: -20.0,
+                            right: 5.0,
+                            child: Image.asset(
+                              "images/event.png",
+                              height: 40.0,
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),
@@ -177,36 +213,5 @@ class _TabBarView1State extends State<TabBarView1> {
     if (!await launchUrl(Uri.parse("https://www.supcom.tn/"))) {
       throw Exception('Could not launch this url!');
     }
-  }
-}
-
-class _ControlsOverlay extends StatelessWidget {
-  const _ControlsOverlay({required this.controller});
-
-  final VideoPlayerController controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        AnimatedSwitcher(
-          duration: const Duration(milliseconds: 50),
-          reverseDuration: const Duration(milliseconds: 200),
-          child: controller.value.isPlaying
-              ? const SizedBox.shrink()
-              : Center(
-                  child: Lottie.asset(
-                    "images/lottie_play.json",
-                    height: 120,
-                  ),
-                ),
-        ),
-        GestureDetector(
-          onTap: () {
-            controller.value.isPlaying ? controller.pause() : controller.play();
-          },
-        ),
-      ],
-    );
   }
 }
