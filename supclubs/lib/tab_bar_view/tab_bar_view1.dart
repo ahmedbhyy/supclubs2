@@ -57,7 +57,12 @@ class _TabBarView1State extends State<TabBarView1> {
     getData();
     _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
       setState(() {
-        _currentImageIndex = (_currentImageIndex + 1) % data1.length;
+        if (data1.isEmpty){
+          _currentImageIndex = (_currentImageIndex + 1) % 1;
+        }else {
+          _currentImageIndex = (_currentImageIndex + 1) % data1.length;
+        }
+      
       });
     });
 

@@ -16,7 +16,7 @@ class ClubMembers extends StatefulWidget {
   final String clubid;
   final String clubiduser;
   const ClubMembers(
-      {super.key,  
+      {super.key,
       required this.clubname,
       required this.clubid,
       required this.clubiduser});
@@ -42,10 +42,10 @@ class _ClubMembersState extends State<ClubMembers> {
         .get();
 
     data1.addAll(querySnapshot.docs);
-isloading = false;
+    isloading = false;
     setState(() {});
     data1.sort((a, b) => b["userpoints"].compareTo(a["userpoints"]));
-    if (data1.length >= 2) {
+    if (data1.length > 2) {
       data2.addAll([data1[0], data1[1], data1[2]]);
     }
   }
@@ -86,7 +86,6 @@ isloading = false;
             displayFullTextOnTap: true,
           ),
         ),
-        elevation: 0.0,
         surfaceTintColor: Colors.white,
         actions: [
           Lottie.asset("images/lottie_workshop.json"),
@@ -105,7 +104,7 @@ isloading = false;
           ),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 252, 252, 252),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       ),
       body: isloading
           ? const LoadingForData(ver: 3.0, hor: 2.0, loadingsize: 25.0)
@@ -286,7 +285,8 @@ isloading = false;
                                           maxRadius: 10,
                                           backgroundColor: index >= 0 &&
                                                   index < numbers.length
-                                              ? const Color.fromARGB(255, 255, 187, 0)
+                                              ? const Color.fromARGB(
+                                                  255, 255, 187, 0)
                                               : const Color.fromARGB(
                                                   255, 198, 107, 244),
                                           child: Text(
@@ -311,7 +311,8 @@ isloading = false;
                                               width: 100,
                                             ),
                                             errorWidget:
-                                                (context, url, error) => const Icon(
+                                                (context, url, error) =>
+                                                    const Icon(
                                               Icons.error,
                                               color: Colors.red,
                                             ),
