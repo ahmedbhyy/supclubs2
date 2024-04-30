@@ -4,6 +4,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:supclubs/widgets/buttton_auth.dart';
 import 'package:supclubs/widgets/generalwidgets/commonloading.dart';
@@ -92,7 +93,7 @@ class _TabBarView3State extends State<TabBarView3> {
   List<String> data = [];
   List<String> data1 = [];
 
-  Future<void> getData() async {
+  Future getData() async {
     try {
       DocumentSnapshot clubDocument = await FirebaseFirestore.instance
           .collection('clubs')
@@ -114,7 +115,8 @@ class _TabBarView3State extends State<TabBarView3> {
         return;
       }
     } catch (e) {
-      return;
+      return Get.snackbar("Error", "Please try again later",
+          backgroundColor: Colors.red);
     }
   }
 
@@ -154,9 +156,13 @@ class _TabBarView3State extends State<TabBarView3> {
         funcsendnotification(
             title.text, date.text, "$formattedTime", place.text);
       } else {
+        isloading = false;
+        setState(() {});
         showDialoge("Error", "Please try again later", DialogType.error);
       }
     } catch (e) {
+      isloading = false;
+      setState(() {});
       showDialoge("Error", "Please try again later", DialogType.error);
     }
   }
@@ -169,7 +175,7 @@ class _TabBarView3State extends State<TabBarView3> {
     }
   }
 
-  Future<void> addworkshopsToFirestore() async {
+  Future addworkshopsToFirestore() async {
     try {
       await FirebaseFirestore.instance.collection('workshops').add(
         {
@@ -184,7 +190,8 @@ class _TabBarView3State extends State<TabBarView3> {
         },
       );
     } catch (e) {
-      return;
+      return Get.snackbar("Error", "Please try again later",
+          backgroundColor: Colors.red);
     }
   }
 

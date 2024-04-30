@@ -155,10 +155,8 @@ class AboutSupcomState extends State<AboutSupcom> {
               ],
             ),
           ),
-          Lottie.asset(
-            "images/lottie_supcom1.json",
-            height: 140,
-          ),
+          Lottie.asset("images/lottie_supcom1.json",
+              height: 140, repeat: false),
         ],
       ),
     );

@@ -88,7 +88,7 @@ class _ClubMembersState extends State<ClubMembers> {
         ),
         surfaceTintColor: Colors.white,
         actions: [
-          Lottie.asset("images/lottie_workshop.json"),
+          Lottie.asset("images/lottie_workshop.json", repeat: false),
         ],
         leading: Padding(
           padding: const EdgeInsets.only(left: 10),
@@ -143,7 +143,8 @@ class _ClubMembersState extends State<ClubMembers> {
                                       MediaQuery.of(context).size.width / 4.5,
                                 ),
                                 child: const Text(
-                                  "ranking not available ❌",
+                                  "Ranking not available ❌",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,

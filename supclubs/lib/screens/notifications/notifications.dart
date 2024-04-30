@@ -2,6 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:supclubs/profilscreens/widget_profil/common_appbar.dart';
 import 'package:supclubs/screens/notifications/notifications_details.dart';
@@ -24,7 +25,7 @@ class _NotificationsState extends State<Notifications> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   List<Map<String, dynamic>> userData = [];
 
-  Future<void> getUserNotifications() async {
+  Future getUserNotifications() async {
     try {
       isloading = true;
       DocumentSnapshot userDoc = await FirebaseFirestore.instance
@@ -52,10 +53,14 @@ class _NotificationsState extends State<Notifications> {
         isloading = false;
         setState(() {});
       } else {
+        isloading = false;
+        setState(() {});
         return;
       }
     } catch (e) {
-      return;
+      isloading = false;
+      setState(() {});
+      return Get.snackbar("Error", "Please try again later",backgroundColor: Colors.red);
     }
   }
 

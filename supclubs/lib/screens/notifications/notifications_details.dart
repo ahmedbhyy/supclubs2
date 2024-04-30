@@ -22,7 +22,8 @@ class NotificationDetails extends StatelessWidget {
     required this.time,
     required this.date,
     required this.image,
-    required this.titleworkshop, required this.id,
+    required this.titleworkshop,
+    required this.id,
   });
 
   @override
@@ -41,7 +42,7 @@ class NotificationDetails extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Hero(
-                tag:id ,
+                tag: id,
                 child: CachedNetworkImage(
                   imageUrl: image,
                   height: 250,
@@ -89,11 +90,12 @@ class NotificationDetails extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Lottie.asset("images/lottie_location.json"),
+                            Lottie.asset("images/lottie_location.json",
+                                height: 35.0),
                             Text(
                               place,
                               style: const TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 16,
                                   color: Color.fromARGB(255, 40, 9, 216)),
                             ),
                           ],

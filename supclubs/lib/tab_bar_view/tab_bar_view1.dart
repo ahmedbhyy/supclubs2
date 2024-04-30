@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
@@ -57,12 +58,11 @@ class _TabBarView1State extends State<TabBarView1> {
     getData();
     _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
       setState(() {
-        if (data1.isEmpty){
+        if (data1.isEmpty) {
           _currentImageIndex = (_currentImageIndex + 1) % 1;
-        }else {
+        } else {
           _currentImageIndex = (_currentImageIndex + 1) % data1.length;
         }
-      
       });
     });
 
@@ -95,11 +95,19 @@ class _TabBarView1State extends State<TabBarView1> {
                           ClipRRect(
                             key: UniqueKey(),
                             borderRadius: BorderRadius.circular(30),
-                            child: Image.network(
-                              data1[_currentImageIndex]["image"],
+                            child: CachedNetworkImage(
+                              imageUrl: data1[_currentImageIndex]["image"],
                               width: MediaQuery.of(context).size.width / 1.1,
                               height: MediaQuery.of(context).size.height / 4,
                               fit: BoxFit.fill,
+                              placeholder: (context, url) => Lottie.asset(
+                                "images/lottie_loading2.json",
+                                height: 150.0,
+                              ),
+                              errorWidget: (context, url, error) => const Icon(
+                                Icons.error,
+                                color: Colors.red,
+                              ),
                             ),
                           ),
                           Positioned(
