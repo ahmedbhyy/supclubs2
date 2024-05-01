@@ -83,12 +83,12 @@ class _TabBarView3State extends State<TabBarView3> {
         isloading = false;
         setState(() {});
       } else {
-         isloading = false;
+        isloading = false;
         setState(() {});
         return;
       }
     } catch (e) {
-       isloading = false;
+      isloading = false;
       setState(() {});
       return;
     }
@@ -142,7 +142,7 @@ class _TabBarView3State extends State<TabBarView3> {
           await userDocRef.collection('notifications').add({
             'title': title.text,
             'details': description.text,
-            'time': formattedTime ?? _formatTimeOfDay(selectedTime),
+            'time': formattedTime,
             'clubname': widget.clubnameuser,
             'date': date.text,
             'image': widget.clubimguser,
@@ -158,7 +158,7 @@ class _TabBarView3State extends State<TabBarView3> {
             "we have added this workshop to your members schedule",
             DialogType.success);
         funcsendnotification(
-            title.text, date.text, "$formattedTime", place.text);
+            title.text, date.text, formattedTime, place.text);
       } else {
         isloading = false;
         setState(() {});
@@ -185,7 +185,7 @@ class _TabBarView3State extends State<TabBarView3> {
         {
           'title': title.text,
           'details': description.text,
-          'time': formattedTime ?? _formatTimeOfDay(selectedTime),
+          'time': formattedTime,
           'clubname': widget.clubnameuser,
           'date': date.text,
           'image': widget.clubimguser,
@@ -206,7 +206,7 @@ class _TabBarView3State extends State<TabBarView3> {
     super.initState();
   }
 
-  String? formattedTime;
+  String formattedTime = TimeOfDay.now().hour.toString();
   TimeOfDay selectedTime = TimeOfDay.now();
   Future<void> _selectTime(BuildContext context) async {
     final TimeOfDay? pickedS = await showTimePicker(

@@ -178,7 +178,9 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                         ).show();
                                       },
                                       child: Lottie.asset(
-                                          "images/lottie_icon2.json"),
+                                        "images/lottie_icon2.json",
+                                        repeat: false,
+                                      ),
                                     )
                                   : data1.isNotEmpty
                                       ? InkWell(

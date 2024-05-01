@@ -58,9 +58,10 @@ class _ProfilScreenState extends State<ProfilScreen> {
             title: "My Profil",
             lottie: "images/lottie_animation4.json",
           ),
+          const SizedBox(height: 10.0),
           Image.asset(
             "images/person1.png",
-            height: 180,
+            height: 150,
           ),
           const SizedBox(height: 20),
           const CardProfil(

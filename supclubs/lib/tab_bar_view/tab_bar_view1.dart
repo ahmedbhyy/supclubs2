@@ -158,7 +158,8 @@ class _TabBarView1State extends State<TabBarView1> {
                             ),
                           ),
                           const SizedBox(width: 10),
-                          Lottie.asset("images/lottie_missile.json", width: 40),
+                          Lottie.asset("images/lottie_missile.json",
+                              width: 40, repeat: false),
                         ],
                       ),
                       Row(

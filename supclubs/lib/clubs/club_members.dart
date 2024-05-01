@@ -156,7 +156,7 @@ class _ClubMembersState extends State<ClubMembers> {
                         data2.length >= 2
                             ? Positioned(
                                 top: MediaQuery.of(context).size.height / 10.0,
-                                left: MediaQuery.of(context).size.width / 50.0,
+                                left: MediaQuery.of(context).size.width / 10.0,
                                 child: rank(
                                   radius: 30.0,
                                   height: 10,

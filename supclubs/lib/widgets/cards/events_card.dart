@@ -23,7 +23,8 @@ class EventsCard extends StatelessWidget {
     required this.date,
     required this.place,
     this.time,
-    required this.onLongPress, required this.id,
+    required this.onLongPress,
+    required this.id,
   }) : super(key: key);
 
   @override
@@ -47,7 +48,7 @@ class EventsCard extends StatelessWidget {
                   Text(
                     title,
                     style: GoogleFonts.abel(
-                      fontSize: 24,
+                      fontSize: 20,
                       color: Colors.blue[800],
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.italic,
@@ -59,7 +60,7 @@ class EventsCard extends StatelessWidget {
               leading: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Hero(
-                  tag:id ,
+                  tag: id,
                   child: CachedNetworkImage(
                     imageUrl: source,
                     width: 80,
@@ -81,15 +82,15 @@ class EventsCard extends StatelessWidget {
                   Text(
                     "$time, $date",
                     style: const TextStyle(
-                        fontSize: 13.0, fontStyle: FontStyle.italic),
+                        fontSize: 11.5, fontStyle: FontStyle.italic),
                   ),
                   Row(
                     children: [
-                      Lottie.asset("images/lottie_location.json", width: 21.0),
+                      Lottie.asset("images/lottie_location.json", width: 16.0),
                       Text(
                         place,
                         style: const TextStyle(
-                          fontSize: 12.0,
+                          fontSize: 11.0,
                           fontStyle: FontStyle.italic,
                           fontWeight: FontWeight.bold,
                         ),

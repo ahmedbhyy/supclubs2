@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -89,103 +90,116 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
-        child: Scaffold(
-            key: scaffoldkey,
-            backgroundColor: Colors.white,
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-              surfaceTintColor: Colors.white,
-              leading: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      SlideTop(
-                        page: ProfilScreen(
-                          isAdmin: widget.isAdmin!,
-                          userid: widget.userid!,
-                          appvote: widget.appvote!,
-                          clubnameuser: widget.clubnameuser!,
-                          clubpresidant: widget.clubiduser!,
-                          phone: widget.userphone!,
-                          year: widget.useryear!,
-                          username: widget.username!,
-                        ),
-                      ),
-                    );
-                  },
-                  child: CircleAvatar(
-                    radius: 20.0,
-                    backgroundImage:
-                        _imageFile.isNotEmpty ? NetworkImage(_imageFile) : null,
-                    backgroundColor: Colors.white,
-                  ),
-                ),
-              ),
-              title: AnimatedTextKit(
-                animatedTexts: [
-                  ColorizeAnimatedText(
-                    'Hi, ${widget.username}',
-                    textStyle: GoogleFonts.abhayaLibre(
-                      fontWeight: FontWeight.bold,
-                      fontStyle: FontStyle.italic,
-                      fontSize: 22,
+      length: 3,
+      child: Scaffold(
+        key: scaffoldkey,
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          surfaceTintColor: Colors.white,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+                  SlideTop(
+                    page: ProfilScreen(
+                      isAdmin: widget.isAdmin!,
+                      userid: widget.userid!,
+                      appvote: widget.appvote!,
+                      clubnameuser: widget.clubnameuser!,
+                      clubpresidant: widget.clubiduser!,
+                      phone: widget.userphone!,
+                      year: widget.useryear!,
+                      username: widget.username!,
                     ),
-                    colors: colorizeColors,
                   ),
-                ],
-                isRepeatingAnimation: true,
-                totalRepeatCount: 50,
-                pause: const Duration(milliseconds: 50),
-              ),
-              actions: [
-                Lottie.asset("images/lottie_home.json", repeat: false),
-              ],
-              bottom: TabBar(
-                tabs: const [
-                  Tab(
-                    child: Text("Home"),
-                  ),
-                  Tab(
-                    child: Text("Events"),
-                  ),
-                  Tab(
-                    child: Text("schedule"),
-                  ),
-                ],
-                unselectedLabelColor: const Color.fromARGB(255, 15, 193, 148),
-                labelStyle: GoogleFonts.abel(
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 20,
-                    color: Colors.blue[700]),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50.0),
+                    child: CachedNetworkImage(
+                      imageUrl: _imageFile,
+                      fit: BoxFit.fill,
+                      placeholder: (context, url) => Lottie.asset(
+                        "images/lottie_loading2.json",
+                        height: 20.0,
+                      ),
+                      errorWidget: (context, url, error) => const Icon(
+                        Icons.person_2_outlined,
+                        color: Colors.blue,
+                      ),
+                    )),
               ),
             ),
-            body: TabBarView(
-              children: [
-                TabBarView1(
-                  userclass: widget.useryear!,
-                  useremail: _user.email!,
-                  clubiduser: widget.clubiduser!,
-                  userid: _user.uid,
-                  username: widget.username!,
+          ),
+          title: AnimatedTextKit(
+            animatedTexts: [
+              ColorizeAnimatedText(
+                'Hi, ${widget.username}',
+                textStyle: GoogleFonts.abhayaLibre(
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  fontSize: 22,
                 ),
-                TabBarView2(
-                  isadmin: widget.isAdmin!,
-                  userimage: _imageFile,
-                  userid: _user.uid,
-                  username: widget.username!,
-                  useryear: widget.useryear!,
-                ),
-                TabBarView3(
-                  clubiduser: widget.clubiduser!,
-                  usertoken: widget.token!,
-                  clubimguser: widget.clubimguser!,
-                  clubnameuser: widget.clubnameuser!,
-                  isAdmin: widget.isAdmin!,
-                ),
-              ],
-            )));
+                colors: colorizeColors,
+              ),
+            ],
+            isRepeatingAnimation: true,
+            totalRepeatCount: 50,
+            pause: const Duration(milliseconds: 50),
+          ),
+          actions: [
+            Lottie.asset("images/lottie_home.json", repeat: false),
+          ],
+          bottom: TabBar(
+            tabs: const [
+              Tab(
+                child: Text("Home"),
+              ),
+              Tab(
+                child: Text("Events"),
+              ),
+              Tab(
+                child: Text("schedule"),
+              ),
+            ],
+            unselectedLabelColor: const Color.fromARGB(255, 15, 193, 148),
+            labelStyle: GoogleFonts.abel(
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                fontSize: 20,
+                color: Colors.blue[700]),
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            TabBarView1(
+              userclass: widget.useryear!,
+              useremail: _user.email!,
+              clubiduser: widget.clubiduser!,
+              userid: _user.uid,
+              username: widget.username!,
+            ),
+            TabBarView2(
+              isadmin: widget.isAdmin!,
+              userimage: _imageFile,
+              userid: _user.uid,
+              username: widget.username!,
+              useryear: widget.useryear!,
+            ),
+            TabBarView3(
+              clubiduser: widget.clubiduser!,
+              usertoken: widget.token!,
+              clubimguser: widget.clubimguser!,
+              clubnameuser: widget.clubnameuser!,
+              isAdmin: widget.isAdmin!,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
