@@ -301,7 +301,7 @@ class _ClubMembersState extends State<ClubMembers> {
                                         ),
                                         ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(30),
+                                              BorderRadius.circular(50),
                                           child: CachedNetworkImage(
                                             imageUrl: data1[index]["userimage"],
                                             width: 50,

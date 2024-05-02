@@ -28,6 +28,7 @@ class ClubsDetails extends StatefulWidget {
   final Uri urlinstagram;
   final List bureauimages;
   final List bureauleaders;
+  final List leadersimages;
 
   final String description;
   const ClubsDetails({
@@ -45,6 +46,7 @@ class ClubsDetails extends StatefulWidget {
     required this.clubiduser,
     required this.bureauimages,
     required this.bureauleaders,
+    required this.leadersimages,
   });
 
   @override
@@ -136,7 +138,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/Capture.PNG"),
+            image: AssetImage("images/background.jpg"),
             fit: BoxFit.fill,
           ),
         ),
@@ -162,7 +164,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                       widget.clubiduser != widget.clubid
                           ? CircleAvatar(
                               backgroundColor:
-                                  const Color.fromARGB(255, 36, 140, 177),
+                                  const Color.fromARGB(255, 183, 180, 172),
                               radius: 25.0,
                               child: isInList
                                   ? InkWell(
@@ -292,6 +294,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                       borderRadius: BorderRadius.circular(30),
                       color: const Color.fromARGB(124, 1, 150, 125),
                     ),
+                    padding: const EdgeInsets.all(5),
                     width: double.maxFinite,
                     child: Column(
                       children: [
@@ -301,13 +304,14 @@ class _ClubsDetailsState extends State<ClubsDetails>
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   DefaultTextStyle(
-                                    style: GoogleFonts.qwigley(
-                                      fontSize: 40,
+                                    style: GoogleFonts.nokora(
+                                      fontSize: 23,
                                       fontStyle: FontStyle.italic,
                                       color: const Color.fromARGB(
-                                          255, 222, 222, 60),
+                                          255, 233, 233, 214),
                                       fontWeight: FontWeight.bold,
                                     ),
                                     child: AnimatedTextKit(
@@ -321,14 +325,16 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                   Row(
                                     children: [
                                       Lottie.asset(
-                                          "images/lottie_location.json"),
+                                          "images/lottie_location.json",
+                                          height: 35,
+                                          repeat: false),
                                       const Text(
                                         "Sup'Com",
                                         style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 18,
                                             fontStyle: FontStyle.italic,
                                             color: Color.fromARGB(
-                                                255, 191, 226, 32)),
+                                                255, 51, 52, 48)),
                                       ),
                                     ],
                                   ),
@@ -355,8 +361,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
                                         fontStyle: FontStyle.italic,
-                                        color:
-                                            Color.fromARGB(255, 229, 220, 41),
+                                        color: Color.fromARGB(255, 74, 74, 69),
                                       ),
                                       child: AnimatedTextKit(
                                         animatedTexts: [
@@ -393,6 +398,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                         clubimage: widget.imagepath3,
                                         leadersinfo: widget.bureauleaders,
                                         bureauimages: widget.bureauimages,
+                                        leadersimages: widget.leadersimages,
                                       ),
                                     ),
                                   );
@@ -408,7 +414,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                       ),
                                     ),
                                     Lottie.asset("images/lottie_aboutus2.json",
-                                        height: 30),
+                                        height: 30, repeat: false),
                                   ],
                                 ),
                               ),
@@ -436,7 +442,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                         fontStyle: FontStyle.italic,
                                         fontSize: 16,
                                         color:
-                                            Color.fromARGB(255, 235, 227, 92),
+                                            Color.fromARGB(255, 255, 255, 255),
                                       ),
                                     ),
                                   ],
@@ -455,7 +461,7 @@ class _ClubsDetailsState extends State<ClubsDetails>
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
-                              color: Color.fromARGB(255, 214, 241, 170),
+                              color: Color.fromARGB(255, 65, 66, 61),
                             ),
                           ),
                         ),
@@ -470,8 +476,8 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                 },
                                 child: CircleAvatar(
                                     radius: 26,
-                                    backgroundColor:
-                                        const Color.fromARGB(255, 255, 205, 57),
+                                    backgroundColor: const Color.fromARGB(
+                                        255, 204, 202, 195),
                                     child:
                                         Lottie.asset("images/lottie_fb.json")),
                               ),
@@ -481,8 +487,8 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                 },
                                 child: CircleAvatar(
                                     radius: 26,
-                                    backgroundColor:
-                                        const Color.fromARGB(255, 255, 205, 57),
+                                    backgroundColor: const Color.fromARGB(
+                                        255, 204, 202, 195),
                                     child: Lottie.asset(
                                         "images/lottie_instagram.json")),
                               ),
@@ -493,8 +499,8 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                   },
                                   child: CircleAvatar(
                                     radius: 26,
-                                    backgroundColor:
-                                        const Color.fromARGB(255, 255, 205, 57),
+                                    backgroundColor: const Color.fromARGB(
+                                        255, 204, 202, 195),
                                     child: Lottie.asset(
                                       "images/lottie_web2.json",
                                       height: 45,
@@ -553,9 +559,11 @@ class _ClubsDetailsState extends State<ClubsDetails>
                                 child: CircleAvatar(
                                   radius: 26,
                                   backgroundColor:
-                                      const Color.fromARGB(255, 255, 205, 57),
+                                      const Color.fromARGB(255, 204, 202, 195),
                                   child: Lottie.asset(
-                                      "images/lottie_workshop.json"),
+                                    "images/lottie_workshop.json",
+                                    repeat: false,
+                                  ),
                                 ),
                               ),
                             ],

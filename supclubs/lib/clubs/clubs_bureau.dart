@@ -10,12 +10,14 @@ class ClubsBureau extends StatefulWidget {
   final String clubimage;
   final List bureauimages;
   final List leadersinfo;
+  final List leadersimages;
   const ClubsBureau(
       {super.key,
       required this.clubname,
       required this.bureauimages,
       required this.leadersinfo,
-      required this.clubimage});
+      required this.clubimage,
+      required this.leadersimages});
 
   @override
   State<ClubsBureau> createState() => _ClubsBureauState();
@@ -125,7 +127,7 @@ class _ClubsBureauState extends State<ClubsBureau> {
                 leading: ClipRRect(
                   borderRadius: BorderRadius.circular(30),
                   child: CachedNetworkImage(
-                    imageUrl: widget.bureauimages[index],
+                    imageUrl: widget.leadersimages[index],
                     fit: BoxFit.fill,
                     width: 50.0,
                     height: 50.0,
@@ -141,11 +143,14 @@ class _ClubsBureauState extends State<ClubsBureau> {
                 trailing: widget.clubname != "MLS"
                     ? Image.asset(
                         widget.clubimage,
-                        width: 50.0,
+                        width: 40.0,
                       )
-                    : Image.asset(
-                        "images/mls.png",
-                        width: 45.0,
+                    : ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.asset(
+                          "images/mls.png",
+                          width: 45.0,
+                        ),
                       ),
               );
             },

@@ -203,6 +203,7 @@ class _TabBarView1State extends State<TabBarView1> {
                           userid: widget.userid,
                           bureauleaders: data[index]["leaders"],
                           bureauimages: data[index]["images"],
+                          leadersimages:  data[index]["imageleaders"],
                           clubiduser: widget.clubiduser,
                           username: widget.username,
                           useryear: widget.userclass,

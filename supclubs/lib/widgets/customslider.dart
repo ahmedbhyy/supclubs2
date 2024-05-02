@@ -34,8 +34,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                 onBoardingList[i].body!,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.aladin(
-                    fontSize: 30,
-                    //fontWeight: FontWeight.bold,
+                    fontSize: 25,
                     fontStyle: FontStyle.italic,
                     color: const Color.fromARGB(255, 185, 136, 250)),
               ),

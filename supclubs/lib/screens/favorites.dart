@@ -113,6 +113,7 @@ class _FavoritesState extends State<Favorites> {
                             bureauimages: data[index]["images"],
                             userid: widget.iduser,
                             clubiduser: widget.clubiduser,
+                            leadersimages:  data[index]["imageleaders"],
                             username: widget.username,
                             useryear: widget.useryear,
                             clubid: data[index].id,
