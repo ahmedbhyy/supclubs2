@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:supclubs/auth/sign_in.dart';
 import 'package:supclubs/auth/sign_up.dart';
@@ -19,6 +20,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+   Gemini.init(apiKey: 'AIzaSyAAZ17m1cVs7vrrq32hkuHUWK4xp1d6N4o');
 
   runApp(const SupClubs());
 }

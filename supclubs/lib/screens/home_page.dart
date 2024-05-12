@@ -10,6 +10,8 @@ import 'package:supclubs/profilscreens/profil_screen.dart';
 import 'package:supclubs/tab_bar_view/tab_bar_view1.dart';
 import 'package:supclubs/tab_bar_view/tab_bar_view2.dart';
 import 'package:supclubs/tab_bar_view/tab_bar_view3.dart';
+import 'package:supclubs/gemini_chat.dart';
+import 'package:supclubs/widgets/slides/slide_right.dart';
 import 'package:supclubs/widgets/slides/slide_top.dart';
 
 const colorizeColors = [
@@ -94,6 +96,20 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         key: scaffoldkey,
         backgroundColor: Colors.white,
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 60.0),
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.of(context).push(SlideRight(page:  ChatGemini(image: _imageFile,)));
+            },
+            backgroundColor: const Color.fromARGB(255, 228, 166, 238),
+            child: const Icon(
+              Icons.chat,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         appBar: AppBar(
           backgroundColor: Colors.white,
           surfaceTintColor: Colors.white,
